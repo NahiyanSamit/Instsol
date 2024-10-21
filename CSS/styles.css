@@ -16,12 +16,14 @@ body {
 .navBar {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%; /* Start positioning from the middle of the page */
+    transform: translateX(-50%); /* Shift it back by 50% of its width to center it */
+    width: 80%; /* Width of the navbar */
     z-index: 1000; /* Stay above other content */
     background-color: white; /* Ensure non-transparent background */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
+
 
 /* Navbar styling */
 nav {
@@ -109,6 +111,9 @@ ul li:hover .dropdown {
 
 /* Responsive styles for screens 1024px and smaller */
 @media (max-width: 1024px) {
+    .navBar {
+        width: 100%; /* Full width on smaller screens */
+    }
     .hideOnMobile {
         display: none; /* Hide elements that shouldn't appear on mobile */
     }
@@ -119,6 +124,9 @@ ul li:hover .dropdown {
 
 /* Adjust sidebar for smaller screens */
 @media (max-width: 768px) {
+    .navBar {
+        width: 100%; /* Full width on smaller screens */
+    }
     .sidebar {
         width: 100%; /* Full width on mobile */
         top: 50px; /* Align with bottom of fixed navbar */

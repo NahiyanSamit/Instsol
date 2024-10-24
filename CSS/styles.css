@@ -43,33 +43,28 @@ body {
     left: 50%; /* Start positioning from the middle of the page */
     transform: translateX(-50%); /* Shift it back by 50% of its width to center it */
     width: 80%; /* Width of the navbar */
-    z-index: 1000; /* Stay above other content */
+    z-index: 999; /* Stay above other content */
     background-color: white; /* Ensure non-transparent background */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 
-/* Navbar styling */
-nav {
-    background-color: white;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1); /* Light shadow for navbar */
-}
-
 /* Navbar list */
-nav ul {
+
+.navBar ul {
     list-style: none; /* Remove bullet points */
-    display: flex; /* Align items horizontally */
-    justify-content: flex-end; /* Align items to the right */
+    display: flex; /* Flex for horizontal layout */
+    justify-content: space-between; /* Align items to the right */
     align-items: center; /* Center items vertically */
 }
 
 /* Navbar items */
-nav li {
+.navBar li {
     height: 50px; /* Fixed height for navbar items */
 }
 
 /* Navbar links */
-nav a {
+.navBar a {
     height: 100%; /* Full height for each link */
     padding: 0 30px; /* Space around each link */
     text-decoration: none; /* Remove underline */
@@ -103,21 +98,21 @@ nav a {
 
 
 /* Hover effect for navbar links */
-nav a:hover {
+.navBar a:hover {
     background-color: #f2f2f2; /* Light gray on hover */
 }
 
 /* Push the first list item to the left */
-nav li:first-child {
+.navBar li:first-child {
     margin-right: auto;
 }
 
 /* Dropdown menu functionality */
-.dropdown {
+.navBar .dropdown {
     position: relative; /* Position relative for absolute dropdown */
     display: none;
 }
-ul li:hover .dropdown {
+.navBar li:hover .dropdown {
     display: block; /* Show dropdown on hover */
     position: absolute; /* Position absolutely */
     top: 50px; /* Align with bottom of navbar */
@@ -144,11 +139,9 @@ ul li:hover .dropdown {
 }
 
 
-
-
 /* Sidebar container, hidden by default */
 .sidebar {
-    position: fixed;
+    position: fixed; /* Fixed position */
     top: 0;
     right: 0;
     height: 100vh; /* Full viewport height */
@@ -162,15 +155,82 @@ ul li:hover .dropdown {
     justify-content: start; /* Center items vertically */
 }
 
-/* Full width for sidebar list items */
-.sidebar li {
-    width: 100%;
+/* Sidebar list styling */
+.sidebar ul {
+    list-style: none;
+    width: 100%; /* Full width for list */
 }
 
-/* Sidebar links take up full width */
-.sidebar a {
-    width: 100%;
+/* Sidebar list items */
+.sidebar li {
+    width: 100%; /* Full width for list items */
+    margin-bottom: 5px;
 }
+
+/* Sidebar links */
+.sidebar a {
+    height: 50px; /* Fixed height for sidebar items */
+    padding: 0 30px; /* Space around each link */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Flex for vertical centering */
+    align-items: right;
+    color: black; /* Link color */
+}
+
+.sidebar a:hover {
+    background-color: #f2f2f2; /* Light gray on hover */
+}
+
+/* Submenu styling */
+.subMenu {
+    display: none;
+    list-style: none;
+}
+
+/* Active class to show submenu */
+.sidebar li.active .subMenu {
+    display: block;
+}
+
+/* Submenu list items */
+.subMenu li {
+    height: 50px; /* Fixed height for submenu items */
+}
+
+/* Style submenu links */
+.subMenu a {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+/* Submenu hover effect */
+.subMenu a:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+}
+
+
+/* Show the submenu when the parent item is active */
+.sidebar li.active > .subMenu {
+    display: block; /* Show submenu when parent is active */
+    margin-top: 10px; /* Space between parent and submenu */
+}
+
+
+/* Style for active parent item (when submenu is shown) */
+.sidebar li.active > a {
+    background-color: #e0e0e0; /* Highlight parent when active */
+}
+
+/* Ensure all list items stack normally */
+.sidebar li {
+    display: block;
+}
+
+/* Reset margin between parent and submenu */
+.sidebar li.active > .subMenu {
+    margin-top: 0;
+}
+
 
 /* Hide menu button by default */
 .menu-button {

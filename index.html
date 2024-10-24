@@ -33,8 +33,8 @@
             </ul>
         </nav>
     
-        <nav>
-            <ul class="sidebar">
+        <nav class="sidebar">
+            <ul>
                 <li onclick=closeSidebar()><a href="#">
                     <svg xmlns="http://www.w3.org/
                         2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -42,8 +42,14 @@
                     </svg></a></li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Service</a></li>
-                <li><a href="#">Resource</a></li>
+                <li><a href="#">Service</a>
+                    <ul class="subMenu">
+                        <li><a href="#">Service 1</a></li>
+                        <li><a href="#">Service 2</a></li>
+                        <li><a href="#">Service 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Blog</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
@@ -63,6 +69,26 @@
             const sidebar = document.querySelector('.sidebar');
             sidebar.style.display = 'none';
         }
+
+        // Function to toggle submenu visibility when the parent is clicked
+        document.querySelectorAll('.sidebar li > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Find the parent li
+                let parent = this.parentNode;
+            
+                // If the parent is already active, remove the active class
+                if (parent.classList.contains('active')) {
+                    parent.classList.remove('active');
+                } else {
+                    // Remove the active class from all other items
+                    document.querySelectorAll('.sidebar li').forEach(li => {
+                        li.classList.remove('active');
+                    });
+                    // Add active class to the clicked parent
+                    parent.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 

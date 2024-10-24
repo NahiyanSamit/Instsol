@@ -256,7 +256,12 @@ body {
         width: 100%; /* Full width on smaller screens */
     }
     .sidebar {
-        width: 100%; /* Full width on mobile */
-        top: 50px; /* Align with bottom of fixed navbar */
+        width: 100%; /* Smaller width for sidebar */
+    }
+    .hideOnMobile {
+        display: none; /* Hide elements that shouldn't appear on mobile */
+    }
+    .menu-button {
+        display: block; /* Show menu button for mobile */
     }
 }
